@@ -30,6 +30,7 @@ import {
   Monitor
 } from "lucide-react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const Index = () => {
   const [formData, setFormData] = useState({
@@ -48,10 +49,32 @@ const Index = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Thank you for your inquiry! We'll get back to you soon.");
-    setFormData({ name: "", email: "", organization: "", inquiry: "", message: "" });
+    
+    try {
+      const response = await supabase.functions.invoke('submit-inquiry', {
+        body: {
+          name: formData.name,
+          email: formData.email,
+          company: formData.organization,
+          service: formData.inquiry,
+          message: formData.message,
+        },
+      });
+
+      if (response.error) {
+        console.error('Submission error:', response.error);
+        toast.error("Failed to submit inquiry. Please try again.");
+        return;
+      }
+
+      toast.success("Thank you for your inquiry! We'll get back to you soon.");
+      setFormData({ name: "", email: "", organization: "", inquiry: "", message: "" });
+    } catch (error) {
+      console.error('Error submitting inquiry:', error);
+      toast.error("Failed to submit inquiry. Please try again.");
+    }
   };
 
   const handleQuoteRequest = () => {
