@@ -43,7 +43,9 @@ const handler = async (req: Request): Promise<Response> => {
         message,
         phone: phone || null,
       })
-
+      .select()
+      .single();
+    
     if (dbError) {
       console.error("Database error:", dbError);
       throw new Error(`Failed to save inquiry: ${dbError.message}`);
