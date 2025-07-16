@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -6,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { 
   MapPin, 
   Globe, 
@@ -40,10 +40,52 @@ const Index = () => {
     message: ""
   });
 
+  // Smooth scroll function
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast.success("Thank you for your inquiry! We'll get back to you soon.");
     setFormData({ name: "", email: "", organization: "", inquiry: "", message: "" });
+  };
+
+  const handleQuoteRequest = () => {
+    scrollToSection('contact');
+    toast.info("Scroll down to contact us for a custom quote!");
+  };
+
+  const handleConsultationRequest = () => {
+    scrollToSection('contact');
+    toast.info("Let's discuss your project! Fill out the contact form below.");
+  };
+
+  const handleExploreImpact = () => {
+    scrollToSection('portfolio');
+  };
+
+  const handleUnlockInsights = () => {
+    scrollToSection('services');
+  };
+
+  const handleLearnSkills = () => {
+    scrollToSection('training');
+  };
+
+  const handleViewAllTraining = () => {
+    toast.info("Complete training catalog coming soon! Contact us for current offerings.");
+  };
+
+  const handleServiceLearnMore = (serviceName: string) => {
+    toast.info(`Learn more about ${serviceName} - Contact us for detailed information!`);
+  };
+
+  const handleCourseDetails = (courseName: string) => {
+    toast.info(`${courseName} details - Contact us to enroll or learn more!`);
   };
 
   const services = [
@@ -158,12 +200,12 @@ const Index = () => {
               <span className="text-xl font-bold text-foreground">Borderless Maps</span>
             </div>
             <div className="hidden md:flex space-x-6">
-              <a href="#home" className="text-foreground hover:text-primary transition-colors">Home</a>
-              <a href="#services" className="text-foreground hover:text-primary transition-colors">Services</a>
-              <a href="#portfolio" className="text-foreground hover:text-primary transition-colors">Portfolio</a>
-              <a href="#training" className="text-foreground hover:text-primary transition-colors">Training</a>
-              <a href="#about" className="text-foreground hover:text-primary transition-colors">About</a>
-              <a href="#contact" className="text-foreground hover:text-primary transition-colors">Contact</a>
+              <button onClick={() => scrollToSection('home')} className="text-foreground hover:text-primary transition-colors">Home</button>
+              <button onClick={() => scrollToSection('services')} className="text-foreground hover:text-primary transition-colors">Services</button>
+              <button onClick={() => scrollToSection('portfolio')} className="text-foreground hover:text-primary transition-colors">Portfolio</button>
+              <button onClick={() => scrollToSection('training')} className="text-foreground hover:text-primary transition-colors">Training</button>
+              <button onClick={() => scrollToSection('about')} className="text-foreground hover:text-primary transition-colors">About</button>
+              <button onClick={() => scrollToSection('contact')} className="text-foreground hover:text-primary transition-colors">Contact</button>
             </div>
           </div>
         </div>
@@ -189,15 +231,29 @@ const Index = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg animate-pulse-glow">
+            <Button 
+              size="lg" 
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg animate-pulse-glow"
+              onClick={handleExploreImpact}
+            >
               <TrendingUp className="mr-2 h-5 w-5" />
               Explore Our Impact
             </Button>
-            <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-primary text-primary hover:bg-primary hover:text-white">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="px-8 py-4 text-lg border-primary text-primary hover:bg-primary hover:text-white"
+              onClick={handleUnlockInsights}
+            >
               <Zap className="mr-2 h-5 w-5" />
               Unlock Your Insights
             </Button>
-            <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-accent text-accent hover:bg-accent hover:text-white">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="px-8 py-4 text-lg border-accent text-accent hover:bg-accent hover:text-white"
+              onClick={handleLearnSkills}
+            >
               <BookOpen className="mr-2 h-5 w-5" />
               Learn Geospatial Skills
             </Button>
@@ -245,7 +301,11 @@ const Index = () => {
                 <CardContent>
                   <CardDescription className="text-base">{service.description}</CardDescription>
                   <div className="mt-4">
-                    <Button variant="ghost" className="p-0 text-primary hover:text-primary/80">
+                    <Button 
+                      variant="ghost" 
+                      className="p-0 text-primary hover:text-primary/80"
+                      onClick={() => handleServiceLearnMore(service.title)}
+                    >
                       Learn More <ChevronRight className="ml-1 h-4 w-4" />
                     </Button>
                   </div>
@@ -255,7 +315,11 @@ const Index = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8">
+            <Button 
+              size="lg" 
+              className="bg-primary hover:bg-primary/90 text-white px-8"
+              onClick={handleQuoteRequest}
+            >
               Request a Map Project Quote
             </Button>
           </div>
@@ -276,30 +340,58 @@ const Index = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {portfolioProjects.map((project, index) => (
-              <Card key={index} className="group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer">
-                <div className="relative overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <Badge className="absolute top-4 left-4 bg-primary text-white">
-                    {project.sector}
-                  </Badge>
-                </div>
-                <CardHeader>
-                  <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                    {project.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base mb-4">{project.description}</CardDescription>
-                  <div className="flex items-center text-sm text-primary font-medium">
-                    <Star className="h-4 w-4 mr-1" />
-                    Impact: {project.impact}
+              <Dialog key={index}>
+                <DialogTrigger asChild>
+                  <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer">
+                    <div className="relative overflow-hidden">
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <Badge className="absolute top-4 left-4 bg-primary text-white">
+                        {project.sector}
+                      </Badge>
+                    </div>
+                    <CardHeader>
+                      <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                        {project.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-base mb-4">{project.description}</CardDescription>
+                      <div className="flex items-center text-sm text-primary font-medium">
+                        <Star className="h-4 w-4 mr-1" />
+                        Impact: {project.impact}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </DialogTrigger>
+                <DialogContent className="max-w-2xl">
+                  <DialogHeader>
+                    <DialogTitle>{project.title}</DialogTitle>
+                    <DialogDescription>
+                      {project.sector} • {project.impact}
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="space-y-4">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-64 object-cover rounded-lg"
+                    />
+                    <p className="text-base">{project.description}</p>
+                    <div className="flex gap-4">
+                      <Button onClick={handleConsultationRequest}>
+                        Request Similar Project
+                      </Button>
+                      <Button variant="outline" onClick={() => scrollToSection('contact')}>
+                        Learn More
+                      </Button>
+                    </div>
                   </div>
-                </CardContent>
-              </Card>
+                </DialogContent>
+              </Dialog>
             ))}
           </div>
         </div>
@@ -333,7 +425,11 @@ const Index = () => {
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-base mb-4">{program.description}</CardDescription>
-                  <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-white transition-colors">
+                  <Button 
+                    variant="outline" 
+                    className="w-full group-hover:bg-primary group-hover:text-white transition-colors"
+                    onClick={() => handleCourseDetails(program.title)}
+                  >
                     View Course Details
                   </Button>
                 </CardContent>
@@ -342,7 +438,11 @@ const Index = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-white px-8">
+            <Button 
+              size="lg" 
+              className="bg-accent hover:bg-accent/90 text-white px-8"
+              onClick={handleViewAllTraining}
+            >
               <BookOpen className="mr-2 h-5 w-5" />
               Explore All Training Programs
             </Button>
@@ -522,7 +622,11 @@ const Index = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="px-0">
-                  <Button size="lg" className="w-full bg-accent hover:bg-accent/90 text-white">
+                  <Button 
+                    size="lg" 
+                    className="w-full bg-accent hover:bg-accent/90 text-white"
+                    onClick={handleConsultationRequest}
+                  >
                     <Globe className="mr-2 h-5 w-5" />
                     Request a Consultation
                   </Button>
@@ -551,20 +655,20 @@ const Index = () => {
             <div>
               <h3 className="font-semibold text-lg mb-4">Services</h3>
               <ul className="space-y-2 text-background/70">
-                <li>Custom Cartography</li>
-                <li>Interactive Maps</li>
-                <li>Story Maps</li>
-                <li>GIS Training</li>
+                <li><button onClick={() => handleServiceLearnMore('Custom Cartography')} className="hover:text-primary transition-colors">Custom Cartography</button></li>
+                <li><button onClick={() => handleServiceLearnMore('Interactive Maps')} className="hover:text-primary transition-colors">Interactive Maps</button></li>
+                <li><button onClick={() => handleServiceLearnMore('Story Maps')} className="hover:text-primary transition-colors">Story Maps</button></li>
+                <li><button onClick={() => scrollToSection('training')} className="hover:text-primary transition-colors">GIS Training</button></li>
               </ul>
             </div>
             
             <div>
               <h3 className="font-semibold text-lg mb-4">Connect</h3>
               <ul className="space-y-2 text-background/70">
-                <li>LinkedIn</li>
-                <li>TikTok</li>
-                <li>YouTube</li>
-                <li>Newsletter</li>
+                <li><button onClick={() => toast.info('LinkedIn coming soon!')} className="hover:text-primary transition-colors">LinkedIn</button></li>
+                <li><button onClick={() => toast.info('TikTok coming soon!')} className="hover:text-primary transition-colors">TikTok</button></li>
+                <li><button onClick={() => toast.info('YouTube coming soon!')} className="hover:text-primary transition-colors">YouTube</button></li>
+                <li><button onClick={() => toast.info('Newsletter signup coming soon!')} className="hover:text-primary transition-colors">Newsletter</button></li>
               </ul>
             </div>
           </div>
