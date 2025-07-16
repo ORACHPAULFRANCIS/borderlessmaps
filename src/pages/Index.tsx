@@ -601,11 +601,11 @@ const Index = () => {
                 <CardContent className="px-0 space-y-4">
                   <div className="flex items-center space-x-3">
                     <Mail className="h-5 w-5 text-primary" />
-                    <span>info@borderlessmaps.ug</span>
+                    <span>orachpf@gmail.com</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Phone className="h-5 w-5 text-primary" />
-                    <span>+256 XXX XXX XXX</span>
+                    <span>+256 774 061 585</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <MapPin className="h-5 w-5 text-primary" />
