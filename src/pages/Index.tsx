@@ -31,6 +31,9 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import waterAccessMap from "@/assets/water-access-map.jpg";
+import urbanPlanningDashboard from "@/assets/urban-planning-dashboard.jpg";
+import albertineGrabenMap from "@/assets/albertine-graben-map.jpg";
 
 const Index = () => {
   const [formData, setFormData] = useState({
@@ -193,21 +196,21 @@ const Index = () => {
       title: "Albertine Graben Oil and Gas Discoveries",
       sector: "Extractives",
       description: "Comprehensive mapping of oil and gas discoveries in the Albertine Graben region of Uganda, featuring detailed cartographic analysis and spatial visualization",
-      image: "/lovable-uploads/7c596cad-3ebb-485d-b334-7b91c1363227.png",
+      image: albertineGrabenMap,
       impact: "Enhanced resource exploration planning"
     },
     {
       title: "Water Access Mapping in Northern Uganda",
       sector: "Public Health",
       description: "Interactive dashboard helping NGOs optimize resource deployment",
-      image: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=600&h=400&fit=crop",
+      image: waterAccessMap,
       impact: "15% increase in served communities"
     },
     {
       title: "Urban Planning Dashboard",
       sector: "Government",
       description: "Story map combining demographic data with infrastructure planning",
-      image: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600&h=400&fit=crop",
+      image: urbanPlanningDashboard,
       impact: "Streamlined city development decisions"
     }
   ];

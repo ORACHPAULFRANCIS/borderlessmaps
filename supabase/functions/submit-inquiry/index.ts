@@ -58,7 +58,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send notification email to admin
     const adminEmailResponse = await resend.emails.send({
-      from: "Borderless Maps <onboarding@resend.dev>",
+      from: "Borderless Maps <hello@borderlessmaps.com>",
       to: ["orachpf@gmail.com"],
       subject: `New Inquiry: ${service} - ${name}`,
       html: `
@@ -93,7 +93,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send confirmation email to customer
     const customerEmailResponse = await resend.emails.send({
-      from: "Borderless Maps <onboarding@resend.dev>",
+      from: "Borderless Maps <hello@borderlessmaps.com>",
       to: [email],
       subject: "Thank you for your inquiry - Borderless Maps",
       html: `
