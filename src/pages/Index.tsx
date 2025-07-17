@@ -31,8 +31,6 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import founderPhoto from "@/assets/founder-photo.jpg";
-import sampleMap from "@/assets/sample-map.jpg";
 
 const Index = () => {
   const [formData, setFormData] = useState({
@@ -195,7 +193,7 @@ const Index = () => {
       title: "Albertine Graben Oil and Gas Discoveries",
       sector: "Extractives",
       description: "Comprehensive mapping of oil and gas discoveries in the Albertine Graben region of Uganda, featuring detailed cartographic analysis and spatial visualization",
-      image: sampleMap,
+      image: "/lovable-uploads/7c596cad-3ebb-485d-b334-7b91c1363227.png",
       impact: "Enhanced resource exploration planning"
     },
     {
@@ -516,7 +514,7 @@ const Index = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl"></div>
               <img 
-                src={founderPhoto} 
+                src="/lovable-uploads/6592eaaa-1dda-47f9-bb14-ad0a0c858ab4.png" 
                 alt="Orach Paul Francis - Founder"
                 className="relative z-10 w-full h-96 object-cover rounded-3xl shadow-2xl"
               />
