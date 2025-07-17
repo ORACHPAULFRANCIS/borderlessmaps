@@ -31,6 +31,8 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import founderPhoto from "@/assets/founder-photo.jpg";
+import sampleMap from "@/assets/sample-map.jpg";
 
 const Index = () => {
   const [formData, setFormData] = useState({
@@ -190,18 +192,18 @@ const Index = () => {
 
   const portfolioProjects = [
     {
+      title: "Albertine Graben Oil and Gas Discoveries",
+      sector: "Extractives",
+      description: "Comprehensive mapping of oil and gas discoveries in the Albertine Graben region of Uganda, featuring detailed cartographic analysis and spatial visualization",
+      image: sampleMap,
+      impact: "Enhanced resource exploration planning"
+    },
+    {
       title: "Water Access Mapping in Northern Uganda",
       sector: "Public Health",
       description: "Interactive dashboard helping NGOs optimize resource deployment",
       image: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=600&h=400&fit=crop",
       impact: "15% increase in served communities"
-    },
-    {
-      title: "Mining Impact Assessment",
-      sector: "Extractives",
-      description: "Environmental monitoring using satellite imagery and GIS analysis",
-      image: "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=600&h=400&fit=crop",
-      impact: "Informed sustainable mining practices"
     },
     {
       title: "Urban Planning Dashboard",
@@ -514,7 +516,7 @@ const Index = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl"></div>
               <img 
-                src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=400&fit=crop" 
+                src={founderPhoto} 
                 alt="Orach Paul Francis - Founder"
                 className="relative z-10 w-full h-96 object-cover rounded-3xl shadow-2xl"
               />
