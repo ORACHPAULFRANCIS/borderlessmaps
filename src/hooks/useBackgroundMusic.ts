@@ -10,7 +10,7 @@ export const useBackgroundMusic = () => {
 
   const initializeAudio = useCallback(() => {
     if (!audioRef.current) {
-      audioRef.current = new Audio('/src/January 9th by Black Sheriff.mp3');
+      audioRef.current = new Audio('/January 9th by Black Sheriff.mp3');
       audioRef.current.loop = true;
       audioRef.current.volume = volume;
       
