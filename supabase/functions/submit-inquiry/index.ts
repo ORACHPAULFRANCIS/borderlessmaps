@@ -1,3 +1,4 @@
+
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { Resend } from "npm:resend@2.0.0";
@@ -56,9 +57,9 @@ const handler = async (req: Request): Promise<Response> => {
     // Initialize Resend
     const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
-    // Send notification email to admin
+    // Send notification email to admin using verified sender
     const adminEmailResponse = await resend.emails.send({
-      from: "Borderless Maps <hello@borderlessmaps.com>",
+      from: "Borderless Maps <onboarding@resend.dev>",
       to: ["orachpf@gmail.com"],
       subject: `New Inquiry: ${service} - ${name}`,
       html: `
@@ -91,9 +92,9 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Admin notification sent:", adminEmailResponse);
 
-    // Send confirmation email to customer
+    // Send confirmation email to customer using verified sender
     const customerEmailResponse = await resend.emails.send({
-      from: "Borderless Maps <hello@borderlessmaps.com>",
+      from: "Borderless Maps <onboarding@resend.dev>",
       to: [email],
       subject: "Thank you for your inquiry - Borderless Maps",
       html: `
