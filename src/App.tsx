@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
 import Layout from "./components/Layout";
+import BackgroundMusicPlayer from "./components/BackgroundMusicPlayer";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import Portfolio from "./pages/Portfolio";
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/contact" element={<Layout><Contact /></Layout>} />
             <Route path="*" element={<Layout><NotFound /></Layout>} />
           </Routes>
+          <BackgroundMusicPlayer />
         </BrowserRouter>
       </AuthProvider>
     </TooltipProvider>
