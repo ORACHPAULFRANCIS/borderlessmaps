@@ -10,7 +10,7 @@ export const useBackgroundMusic = () => {
 
   const initializeAudio = useCallback(() => {
     if (!audioRef.current) {
-      audioRef.current = new Audio('/lovable-uploads/6592eaaa-1dda-47f9-bb14-ad0a0c858ab4.png'); // We'll need to update this path
+      audioRef.current = new Audio('/src/January 9th by Black Sheriff.mp3');
       audioRef.current.loop = true;
       audioRef.current.volume = volume;
       

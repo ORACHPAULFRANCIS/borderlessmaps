@@ -30,7 +30,7 @@ const MusicNotification = ({
             <span className="font-medium text-sm">Background Music</span>
           </div>
           <p className="text-xs text-muted-foreground mb-3">
-            "Yatzy" by Smith & Thell is now playing. You can control playback using the music player.
+            "9th January" by Black Sherif is now playing. You can control playback using the music player.
           </p>
           <div className="flex gap-2">
             <Button

@@ -56,9 +56,9 @@ const BackgroundMusicPlayer = () => {
             {/* Song Info (visible when expanded) */}
             {isExpanded && (
               <div className="flex-1 min-w-0">
-                <div className="text-sm font-medium truncate">Yatzy</div>
+                <div className="text-sm font-medium truncate">9th January</div>
                 <div className="text-xs text-muted-foreground truncate">
-                  Smith & Thell
+                  Black Sherif
                 </div>
               </div>
             )}
