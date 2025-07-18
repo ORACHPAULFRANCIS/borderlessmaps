@@ -22,9 +22,11 @@ const Contact = () => {
     inquiry: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
     try {
       const response = await supabase.functions.invoke('submit-inquiry', {
@@ -48,6 +50,8 @@ const Contact = () => {
     } catch (error) {
       console.error('Error submitting inquiry:', error);
       toast.error("Failed to submit inquiry. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -130,8 +134,13 @@ const Contact = () => {
                   />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-white">
-                  Submit Inquiry
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  className="w-full bg-primary hover:bg-primary/90 text-white"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Submitting..." : "Submit Inquiry"}
                 </Button>
               </form>
             </CardContent>
