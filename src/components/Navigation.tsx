@@ -1,12 +1,14 @@
 
 import { useState } from "react";
-import { MapPin, Menu, X } from "lucide-react";
+import { MapPin, Menu, X, User, LogIn } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { user, signOut, loading } = useAuth();
 
   const navItems = [
     { name: "Home", path: "/" },
@@ -29,7 +31,7 @@ const Navigation = () => {
           </Link>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-6">
+          <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -43,6 +45,29 @@ const Navigation = () => {
                 {item.name}
               </Link>
             ))}
+            
+            {/* Auth section */}
+            {!loading && (
+              <div className="flex items-center space-x-2">
+                {user ? (
+                  <div className="flex items-center space-x-2">
+                    <span className="text-sm text-muted-foreground">
+                      Welcome, {user.user_metadata?.full_name || user.email}
+                    </span>
+                    <Button variant="outline" size="sm" onClick={signOut}>
+                      Sign Out
+                    </Button>
+                  </div>
+                ) : (
+                  <Link to="/auth">
+                    <Button variant="outline" size="sm">
+                      <LogIn className="h-4 w-4 mr-2" />
+                      Sign In
+                    </Button>
+                  </Link>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Mobile Navigation Button */}
@@ -74,6 +99,29 @@ const Navigation = () => {
                   {item.name}
                 </Link>
               ))}
+              
+              {/* Mobile Auth section */}
+              {!loading && (
+                <div className="px-3 py-2 border-t">
+                  {user ? (
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground">
+                        Welcome, {user.user_metadata?.full_name || user.email}
+                      </p>
+                      <Button variant="outline" size="sm" onClick={signOut} className="w-full">
+                        Sign Out
+                      </Button>
+                    </div>
+                  ) : (
+                    <Link to="/auth" onClick={() => setIsMenuOpen(false)}>
+                      <Button variant="outline" size="sm" className="w-full">
+                        <LogIn className="h-4 w-4 mr-2" />
+                        Sign In
+                      </Button>
+                    </Link>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         )}
