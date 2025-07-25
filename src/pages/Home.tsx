@@ -1,9 +1,8 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { 
-  TrendingUp, 
+import {
+  TrendingUp,
   Zap,
   Target,
   Award,
@@ -22,7 +21,7 @@ const Home = () => {
     },
     {
       icon: <Award className="h-6 w-6" />,
-      title: "Artistry & Accuracy", 
+      title: "Artistry & Accuracy",
       description: "We combine technical precision with artistic design, creating beautiful and impactful maps."
     },
     {
@@ -43,7 +42,7 @@ const Home = () => {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 map-grid-bg"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-float">
             <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6">
@@ -53,14 +52,14 @@ const Home = () => {
               Spatial Data Storytellers
             </p>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-12">
-              Transforming complex spatial data into compelling, actionable narratives, 
+              Transforming complex spatial data into compelling, actionable narratives,
               driving smarter decisions across Africa.
             </p>
           </div>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg animate-pulse-glow"
               asChild
             >
@@ -69,9 +68,9 @@ const Home = () => {
                 Explore Our Impact
               </Link>
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
+            <Button
+              size="lg"
+              variant="outline"
               className="px-8 py-4 text-lg border-primary text-primary hover:bg-primary hover:text-white"
               asChild
             >
@@ -80,9 +79,9 @@ const Home = () => {
                 Unlock Your Insights
               </Link>
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
+            <Button
+              size="lg"
+              variant="outline"
               className="px-8 py-4 text-lg border-accent text-accent hover:bg-accent hover:text-white"
               asChild
             >
@@ -111,7 +110,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Brochure Download Section */}
+      {/* Brochure Download Section - Content removed as DownloadableBrochure is no longer imported */}
       <section className="py-20 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -122,8 +121,10 @@ const Home = () => {
               Download our comprehensive company brochure to discover how we can transform your spatial data into actionable insights.
             </p>
           </div>
+          {/* Removed <DownloadableBrochure /> here because it's no longer imported */}
           <div className="flex justify-center">
-            <DownloadableBrochure />
+            {/* If you want to replace this with a simple link to a PDF, you could add it here: */}
+            {/* <a href="/path/to/your/brochure.pdf" download className="text-primary hover:underline">Download Brochure</a> */}
           </div>
         </div>
       </section>
