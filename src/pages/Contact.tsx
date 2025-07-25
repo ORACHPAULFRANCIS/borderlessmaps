@@ -118,7 +118,7 @@ const Contact = () => {
                       <SelectItem value="custom-map">I need a custom map/visualization</SelectItem>
                       <SelectItem value="training">I'm interested in a training course</SelectItem>
                       <SelectItem value="corporate-training">I'd like corporate training for my team</SelectItem>
-                      <SelectItem value="general">General Inquiry / Partnership</SelectItem>
+                      <SelectItem value="general">General Inquiry / Partnerships</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
