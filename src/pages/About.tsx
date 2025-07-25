@@ -11,8 +11,7 @@ const About = () => {
               About Borderless Maps
             </h1>
             <p className="text-lg text-muted-foreground mb-6">
-              Borderless Maps is a dynamic geospatial consulting and education firm, officially registered as 
-              Borderless Cartographers of Uganda Ltd. We specialize in transforming complex geographic data 
+              Borderless Maps is a dynamic geospatial consulting and education firm. We specialize in transforming complex geospatial data 
               into clear, visually compelling narratives that drive decision-making and inspire positive change 
               across diverse sectors.
             </p>
@@ -43,7 +42,7 @@ const About = () => {
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl"></div>
             <img 
-              src="/lovable-uploads/6592eaaa-1dda-47f9-bb14-ad0a0c858ab4.png" 
+              src="/founder-photo.jpg.JPG" 
               alt="Orach Paul Francis - Founder"
               className="relative z-10 w-full h-96 object-cover rounded-3xl shadow-2xl"
             />
