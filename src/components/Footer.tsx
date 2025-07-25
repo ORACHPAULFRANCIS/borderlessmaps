@@ -45,7 +45,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-background/20 mt-12 pt-8 text-center text-background/60">
-          <p>&copy; 2024 Borderless Maps (Borderless Cartographers of Uganda Ltd). All rights reserved.</p>
+          <p>&copy; 2025 Borderless Maps. All rights reserved.</p>
         </div>
       </div>
     </footer>
