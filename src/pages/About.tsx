@@ -42,7 +42,7 @@ const About = () => {
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl"></div>
             <img 
-              src="/public/founder-photo.jpg.JPG" 
+              src="/founder-photo.jpg.JPG" 
               alt="Orach Paul Francis - Founder"
               className="relative z-10 w-full h-96 object-cover rounded-3xl shadow-2xl"
             />
