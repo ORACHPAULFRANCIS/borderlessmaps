@@ -118,7 +118,7 @@ const Home = () => {
               Learn More About Us
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Download our comprehensive company brochure to discover how we can transform your spatial data into actionable insights.
+              Brochure will be available for download soon.
             </p>
           </div>
           {/* Removed <DownloadableBrochure /> here because it's no longer imported */}
