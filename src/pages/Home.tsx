@@ -12,7 +12,6 @@ import {
   BookOpen
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import DownloadableBrochure from "@/components/DownloadableBrochure";
 
 const Home = () => {
   const features = [
