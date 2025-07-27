@@ -39,8 +39,10 @@ const Footer = () => {
                 {/* Corrected LinkedIn Link */}
                 <a
                   href="https://www.linkedin.com/company/borderless-maps"
-                  target="_blank"             {/* Opens the link in a new tab */}
-                  rel="noopener noreferrer"   {/* Security best practice */}
+                  // Opens the link in a new tab
+                  target="_blank"
+                  // Security best practice
+                  rel="noopener noreferrer"
                   className="hover:text-primary transition-colors"
                 >
                   LinkedIn
