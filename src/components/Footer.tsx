@@ -1,7 +1,6 @@
-
 import { MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
-import { toast } from "sonner";
+import { toast } from "sonner"; // Assuming 'sonner' is your toast library
 
 const Footer = () => {
   const handleServiceLearnMore = (serviceName: string) => {
@@ -18,11 +17,11 @@ const Footer = () => {
               <span className="text-xl font-bold">Borderless Maps</span>
             </div>
             <p className="text-background/70 mb-4">
-              Transforming complex spatial data into compelling, actionable narratives, 
+              Transforming complex spatial data into compelling, actionable narratives,
               driving smarter decisions across Africa.
             </p>
           </div>
-          
+
           <div>
             <h3 className="font-semibold text-lg mb-4">Services</h3>
             <ul className="space-y-2 text-background/70">
@@ -32,18 +31,28 @@ const Footer = () => {
               <li><Link to="/training" className="hover:text-primary transition-colors">GIS Training</Link></li>
             </ul>
           </div>
-          
+
           <div>
             <h3 className="font-semibold text-lg mb-4">Connect</h3>
             <ul className="space-y-2 text-background/70">
-              <li><button onClick={() => toast.info('LinkedIn coming soon!')} className="hover:text-primary transition-colors">LinkedIn</button></li>
+              <li>
+                {/* Corrected LinkedIn Link */}
+                <a
+                  href="https://www.linkedin.com/company/borderless-maps"
+                  target="_blank"             {/* Opens the link in a new tab */}
+                  rel="noopener noreferrer"   {/* Security best practice */}
+                  className="hover:text-primary transition-colors"
+                >
+                  LinkedIn
+                </a>
+              </li>
               <li><button onClick={() => toast.info('TikTok coming soon!')} className="hover:text-primary transition-colors">TikTok</button></li>
               <li><button onClick={() => toast.info('YouTube coming soon!')} className="hover:text-primary transition-colors">YouTube</button></li>
               <li><button onClick={() => toast.info('Newsletter signup coming soon!')} className="hover:text-primary transition-colors">Newsletter</button></li>
             </ul>
           </div>
         </div>
-        
+
         <div className="border-t border-background/20 mt-12 pt-8 text-center text-background/60">
           <p>&copy; 2025 Borderless Maps. All rights reserved.</p>
         </div>
